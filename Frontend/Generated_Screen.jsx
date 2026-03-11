@@ -2,7 +2,10 @@ import React from 'react'
 
 const GeneratedScreen = () => {
   return (
-    <div>GeneratedScreen</div>
+    <div>GeneratedScreen
+
+      <p> hii i am prathushhhhh </p>
+    </div>
   )
 }
 
