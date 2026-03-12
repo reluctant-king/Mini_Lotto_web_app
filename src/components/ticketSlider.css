@@ -185,19 +185,23 @@ font-size:18px;
 
 }
 .history{
-background:linear-gradient(135deg,#f6d365,#fda085);
+background:linear-gradient(135deg,#6a5cff,#8f7bff);
+color:white;
+
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 gap:10px;
+
 cursor:pointer;
-color:#222;
+
+box-shadow:0 14px 30px rgba(106,92,255,0.35);
 }
 
 .history-icon{
-font-size:38px;
-color:#222;
+font-size:36px;
+color:white;
 }
 
 .history .ticket-title{
