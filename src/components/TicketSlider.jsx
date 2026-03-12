@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "./ticketSlider.css";
+import { FaHistory } from "react-icons/fa";
 
 export default function TicketSlider(){
 
@@ -109,7 +110,10 @@ return(
 <div className="ticket-date">26/03/2026</div>
 <div className="ticket-id">7GJK***62M4</div>
 </div>
-
+<div className="ticket history">
+  <FaHistory className="history-icon" />
+  <div className="ticket-title">View History</div>
+</div>
 </div>
 
 <button className="arrow right" onClick={()=>slide(1)}>❯</button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import "./header.css";
 
 export default function Header() {
@@ -15,6 +16,12 @@ export default function Header() {
         <div>
           <p className="welcome">Welcome back,</p>
           <h2 className="name">Arjun!</h2>
+
+          <div className="location">
+            <FaMapMarkerAlt className="location-icon" />
+            <span>Kottayam</span>
+          </div>
+
         </div>
       </div>
 
