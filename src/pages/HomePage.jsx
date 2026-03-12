@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import RechargeTable from "../components/RechargeTable";
 import WinnerSlider from "../components/WinnerSlider";
+import BottomNav from "../components/BottomNav";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
         <RechargeTable />
       </div>
       <WinnerSlider />
+      <BottomNav />
 
     </div>
   );
