@@ -32,7 +32,6 @@ export default function Otp() {
 
     toast.success("OTP Verified 🎉");
 
-    // redirect after success
     setTimeout(()=>{
       navigate("/homepage");
     },1200);
@@ -42,7 +41,7 @@ export default function Otp() {
     <div className="otp-container">
 
       <div className="brand">
-        <div className="brand-icon"> 
+        <div className="brand-icon">
           <FaDice />
         </div>
 
@@ -63,6 +62,8 @@ export default function Otp() {
               key={index}
               id={`otp-${index}`}
               type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
               maxLength="1"
               value={digit}
               onChange={(e)=>handleChange(e.target.value,index)}
