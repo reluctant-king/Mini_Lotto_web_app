@@ -7,15 +7,18 @@ import TicketSlider from "../components/TicketSlider";
 export default function HomePage() {
   return (
     <div>
-
+   <div style={{padding:"10px"}}>
       <Header />
-
-      <div style={{padding:"0px 10px"}}>
+</div>
+      <div style={{padding:"10px"}}>
         <RechargeTable />
       </div>
+      <div style={{padding:"10px"}}>
       <TicketSlider />
-
+</div>
+<div style={{padding:"10px"}}>
       <WinnerSlider />
+      </div>
       <BottomNav />
 
     </div>
