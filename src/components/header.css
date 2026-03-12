@@ -1,0 +1,103 @@
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:white;
+}
+
+/* left side */
+.header-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+/* avatar */
+.avatar{
+width:55px;
+height:55px;
+border-radius:50%;
+border:3px solid #e4d1ff;
+}
+
+/* text */
+.welcome{
+margin:0;
+font-size:13px;
+color:#777;
+}
+
+.name{
+margin:0;
+font-size:22px;
+font-weight:700;
+}
+
+/* balance card */
+.balance-box{
+background:#fff;
+padding:10px 18px;
+border-radius:14px;
+border:1px solid #741eec;
+text-align:center;
+min-width:110px;
+}
+
+.balance-title{
+font-size:11px;
+letter-spacing:2px;
+color:#741eec;
+display:block;
+}
+
+.balance-amount{
+font-size:20px;
+font-weight:700;
+color:#741eec;
+}
+
+/* mobile adjustments */
+@media (max-width:600px){
+
+.avatar{
+width:45px;
+height:45px;
+}
+
+.name{
+font-size:18px;
+}
+
+.balance-amount{
+font-size:18px;
+}
+
+.balance-box{
+padding:8px 14px;
+}
+
+}
+.location{
+display:inline-flex;
+align-items:center;
+gap:6px;
+
+margin-top:6px;
+
+background:linear-gradient(135deg,#741eec,#9f5cff);
+color:white;
+
+padding:4px 10px;
+border-radius:20px;
+
+font-size:12px;
+font-weight:600;
+
+box-shadow:0 4px 10px rgba(116,30,236,0.25);
+}
+
+.location-icon{
+font-size:12px;
+color:white;
+}
