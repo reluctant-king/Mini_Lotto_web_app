@@ -14,7 +14,7 @@ export default function BottomNav() {
 
       <div className="nav-item">
         <FaTicketAlt />
-        <span>Tickets</span>
+        <span>My Tickets</span>
       </div>
 
       <div className="nav-item">

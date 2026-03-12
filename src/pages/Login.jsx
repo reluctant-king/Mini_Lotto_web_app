@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
-
-import { FaTicketAlt, FaHome, FaPhoneAlt, FaUserCheck } from "react-icons/fa";
-import { MdHelpOutline } from "react-icons/md";
+import BottomNav from "../components/BottomNav";
+import { FaDice } from "react-icons/fa";
 
 export default function LoginPage() {
 
@@ -20,69 +19,41 @@ export default function LoginPage() {
   return (
     <div className="login-container">
 
-      {/* Logo */}
-      <div className="logo-box">
-        <div className="logo-icon">
-          <FaTicketAlt size={28}/>
+      <div className="brand">
+
+        <div className="brand-icon">
+          <FaDice />
         </div>
+
         <h1>Mini Lottos</h1>
+        <p className="subtitle">Play Smart. Win Big.</p>
+
       </div>
 
-      {/* Illustration Card */}
-    <div className="card">
-  <FaUserCheck className="welcome-icon"/>
-  <p className="welcome-text">WELCOME</p>
-</div>
+      <div className="login-card">
 
-      <h2>Welcome to Mini Lottos</h2>
-      <p className="subtitle">
-        Enter your phone number to play and win big!
-      </p>
+        <label>Phone Number</label>
 
-      <label>Phone Number</label>
-
-      {/* Phone Input */}
-      <div className="phone-input">
-        <FaPhoneAlt className="phone-icon"/>
         <input
           type="tel"
-          placeholder="000-000-0000"
+          placeholder="Enter phone number"
           value={phone}
           onChange={(e)=>setPhone(e.target.value)}
         />
-      </div>
 
-      {/* Button */}
-      <button className="otp-btn" onClick={handleSubmit}>
-        Send OTP →
-      </button>
+        <button onClick={handleSubmit}>
+          Send OTP
+        </button>
+
+      </div>
 
       <p className="terms">
-        By continuing, you agree to our
-        <span> Terms of Service </span>
-        and
-        <span> Privacy Policy</span>.
+        By continuing you agree to our
+        <span> Terms</span> and
+        <span> Privacy Policy</span>
       </p>
 
-      {/* Bottom Navigation */}
-      <div className="bottom-nav">
-
-        <div className="nav-item active">
-          <FaHome size={22}/>
-          <p>HOME</p>
-        </div>
-
-        <div className="nav-item">
-          <FaTicketAlt size={22}/>
-          <p>MY TICKETS</p>
-        </div>
-
-        <div className="nav-item">
-          <MdHelpOutline size={22}/>
-          <p>HELP</p>
-        </div>
-
-      </div>
+      <BottomNav />
 
     </div>
   );

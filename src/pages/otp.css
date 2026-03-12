@@ -4,7 +4,9 @@ font-family:"Inter",sans-serif;
 background:white;
 }
 
-.login-container{
+/* container */
+
+.otp-container{
 max-width:420px;
 margin:auto;
 padding:40px 25px;
@@ -25,8 +27,8 @@ border-radius:20px;
 display:flex;
 align-items:center;
 justify-content:center;
-color:white;
 font-size:30px;
+color:white;
 margin:auto;
 box-shadow:0 8px 20px rgba(116,30,236,0.25);
 }
@@ -44,35 +46,41 @@ font-size:14px;
 
 /* card */
 
-.login-card{
+.otp-card{
 background:white;
-padding:28px;
+padding:30px;
 border-radius:18px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
+text-align:center;
 }
 
-/* input */
-
-label{
-display:block;
-font-weight:600;
-margin-bottom:8px;
+.otp-info{
+color:#6b7280;
+margin-bottom:25px;
 }
 
-input{
-width:100%;
-padding:15px;
+/* otp inputs */
+
+.otp-inputs{
+display:flex;
+justify-content:space-between;
+margin-bottom:25px;
+}
+
+.otp-inputs input{
+width:60px;
+height:60px;
 border-radius:12px;
 border:1px solid #e5e7eb;
-font-size:16px;
-margin-bottom:20px;
+font-size:24px;
+text-align:center;
 transition:0.2s;
 }
 
-input:focus{
+.otp-inputs input:focus{
 outline:none;
 border-color:#741eec;
-box-shadow:0 0 0 3px rgba(116,30,236,0.12);
+box-shadow:0 0 0 3px rgba(116,30,236,0.15);
 }
 
 /* button */
@@ -95,17 +103,16 @@ transform:translateY(-2px);
 box-shadow:0 10px 20px rgba(116,30,236,0.25);
 }
 
-/* terms */
+/* resend */
 
-.terms{
-text-align:center;
-margin-top:20px;
-font-size:13px;
+.resend{
+margin-top:18px;
+font-size:14px;
 color:#6b7280;
 }
 
-.terms span{
+.resend span{
 color:#741eec;
-margin-left:4px;
 cursor:pointer;
+font-weight:500;
 }
