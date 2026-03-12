@@ -3,7 +3,7 @@ position:fixed;
 bottom:0;
 left:0;
 width:100%;
-background:white;
+background:#741eec;
 display:flex;
 justify-content:space-around;
 align-items:center;
@@ -17,7 +17,7 @@ display:flex;
 flex-direction:column;
 align-items:center;
 font-size:13px;
-color:#ff5a1f;
+color:#fff;
 cursor:pointer;
 }
 

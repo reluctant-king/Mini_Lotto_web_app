@@ -1,0 +1,186 @@
+.ticket-container{
+width:100%;
+margin:auto;
+position:relative;
+}
+
+/* slider */
+
+.ticket-slider{
+display:flex;
+gap:18px;
+overflow-x:auto;
+scroll-behavior:smooth;
+scroll-snap-type:x mandatory;
+
+/* allows first & last ticket to center */
+padding:20px calc(50% - 85px);
+}
+
+.ticket-slider::-webkit-scrollbar{
+display:none;
+}
+
+/* ticket */
+
+.ticket{
+flex:0 0 auto;
+width:170px;
+height:170px;
+
+border-radius:20px;
+padding:14px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+gap:6px;
+
+color:white;
+
+scroll-snap-align:center;
+
+box-shadow:0 14px 30px rgba(0,0,0,0.18);
+
+transition:
+transform .35s ease,
+box-shadow .35s ease,
+margin .35s ease;
+}
+
+/* center active card */
+
+.ticket.active{
+transform:scale(1.12);
+box-shadow:0 22px 45px rgba(0,0,0,0.35);
+margin-left:12px;
+margin-right:12px;
+z-index:5;
+}
+
+/* content */
+
+.ticket-title{
+font-size:18px;
+font-weight:800;
+}
+
+.ticket-day{
+background:#fff;
+font-size:13px;
+padding:2px 6px;
+border-radius:18px;
+color:black;
+}
+
+.ticket-date{
+font-size:15px;
+font-weight:600;
+}
+
+.ticket-id{
+font-size:20px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+/* weekday gradients */
+
+.sunday{
+background:linear-gradient(135deg,#1e6bff,#00a8ff);
+}
+
+.monday{
+background:linear-gradient(135deg,#7b2ff7,#b245ff);
+}
+
+.tuesday{
+background:linear-gradient(135deg,#ff8c00,#ffb347);
+}
+
+.wednesday{
+background:linear-gradient(135deg,#ff2a2a,#ff6a6a);
+}
+
+.thursday{
+background:linear-gradient(135deg,#00b36b,#4dff88);
+}
+
+.friday{
+background:linear-gradient(135deg,#ff4db8,#ff99dd);
+}
+
+.saturday{
+background:linear-gradient(135deg,#001f8f,#0047ff);
+}
+
+/* arrows */
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:48px;
+height:48px;
+border:none;
+border-radius:50%;
+background:white;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,0.25);
+z-index:10;
+}
+
+.arrow:hover{
+transform:translateY(-50%) scale(1.08);
+}
+
+.left{
+left:8px;
+}
+
+.right{
+right:8px;
+}
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+.ticket-slider{
+padding:20px calc(50% - 70px);
+}
+
+.ticket{
+width:140px;
+height:140px;
+padding:10px;
+}
+
+.ticket-title{
+font-size:14px;
+}
+
+.ticket-day{
+font-size:11px;
+}
+
+.ticket-date{
+font-size:12px;
+}
+
+.ticket-id{
+font-size:15px;
+letter-spacing:1px;
+}
+
+.arrow{
+width:36px;
+height:36px;
+font-size:18px;
+}
+
+}
