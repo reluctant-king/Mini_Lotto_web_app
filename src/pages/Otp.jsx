@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./otp.css";
 import { FaDice } from "react-icons/fa";
 import BottomNav from "../components/BottomNav";
-
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function Otp() {
 
   const [otp, setOtp] = useState(["","","",""]);
+  const navigate = useNavigate();
 
   const handleChange = (value,index)=>{
     if(!/^[0-9]?$/.test(value)) return;
@@ -22,19 +24,28 @@ export default function Otp() {
 
   const verifyOtp=()=>{
     const code=otp.join("");
+
     if(code.length<4){
-      alert("Enter complete OTP");
+      toast.error("Please enter complete OTP");
       return;
     }
 
-    alert("OTP Verified: "+code);
+    toast.success("OTP Verified 🎉");
+
+    // redirect after success
+    setTimeout(()=>{
+      navigate("/homepage");
+    },1200);
   };
 
   return (
     <div className="otp-container">
 
       <div className="brand">
-        <div className="brand-icon"> <FaDice /></div>
+        <div className="brand-icon"> 
+          <FaDice />
+        </div>
+
         <h1>Mini Lottos</h1>
         <p className="subtitle">Enter the verification code</p>
       </div>
@@ -69,6 +80,7 @@ export default function Otp() {
         </p>
 
       </div>
+
       <BottomNav />
 
     </div>
