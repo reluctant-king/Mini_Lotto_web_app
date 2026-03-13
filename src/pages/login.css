@@ -1,38 +1,57 @@
 body{
 margin:0;
 font-family:"Inter",sans-serif;
-background:white;
 }
 
+/* container covers entire screen */
+
 .login-container{
+position:fixed;
+inset:0;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+padding:80px 20px 40px;
+background:#741eec;
+box-sizing:border-box;
+overflow:auto;
+}
+
+/* main card */
+
+.login-card{
+width:100%;
 max-width:420px;
-margin:auto;
-padding:40px 25px;
+background:white;
+padding:45px 35px;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,0.12);
+min-height:420px;
 }
 
 /* brand */
 
 .brand{
 text-align:center;
-margin-bottom:40px;
+margin-bottom:35px;
 }
 
 .brand-icon{
 width:70px;
 height:70px;
 background:#741eec;
-border-radius:20px;
+border-radius:18px;
 display:flex;
 align-items:center;
 justify-content:center;
 color:white;
 font-size:28px;
 margin:auto;
-box-shadow:0 8px 20px rgba(116,30,236,0.25);
+box-shadow:0 10px 25px rgba(116,30,236,0.35);
 }
 
 .brand h1{
-margin-top:15px;
+margin-top:16px;
 font-size:26px;
 color:#111827;
 }
@@ -40,15 +59,13 @@ color:#111827;
 .subtitle{
 color:#6b7280;
 font-size:14px;
+margin-top:6px;
 }
 
-/* card */
+/* form group */
 
-.login-card{
-background:white;
-padding:28px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.form-group{
+margin-bottom:22px;
 }
 
 /* label */
@@ -65,25 +82,25 @@ color:#111827;
 .phone-input{
 display:flex;
 align-items:center;
-background:#fff;
+background:#f9fafb;
 border:1px solid #e5e7eb;
 border-radius:14px;
 overflow:hidden;
-height:52px;
+height:56px;
 transition:0.2s;
-margin-bottom:20px;
 }
 
 .phone-input:focus-within{
 border-color:#741eec;
 box-shadow:0 0 0 3px rgba(116,30,236,0.12);
+background:white;
 }
 
 .country{
-padding:0 14px;
+padding:0 16px;
 font-weight:600;
 color:#374151;
-background:#f9fafb;
+background:#f3f4f6;
 border-right:1px solid #e5e7eb;
 display:flex;
 align-items:center;
@@ -94,7 +111,7 @@ height:100%;
 flex:1;
 border:none;
 outline:none;
-padding:0 14px;
+padding:0 16px;
 font-size:16px;
 height:100%;
 background:transparent;
@@ -102,10 +119,10 @@ background:transparent;
 
 /* button */
 
-button{
+.login-btn{
 width:100%;
 padding:16px;
-background:#741eec;
+background:linear-gradient(135deg,#741eec,#9333ea);
 border:none;
 color:white;
 font-size:17px;
@@ -113,21 +130,23 @@ font-weight:600;
 border-radius:14px;
 cursor:pointer;
 transition:0.25s;
-box-shadow:0 10px 20px rgba(116,30,236,0.25);
+box-shadow:0 10px 25px rgba(116,30,236,0.35);
+margin-top:10px;
 }
 
-button:hover{
+.login-btn:hover{
 transform:translateY(-2px);
-box-shadow:0 14px 28px rgba(116,30,236,0.35);
+box-shadow:0 14px 30px rgba(116,30,236,0.45);
 }
 
 /* terms */
 
 .terms{
-margin-top:20px;
+margin-top:22px;
 font-size:13px;
 text-align:center;
 color:#6b7280;
+line-height:1.5;
 }
 
 .terms span{

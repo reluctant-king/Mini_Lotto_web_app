@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./login.css";
-import BottomNav from "../components/BottomNav";
 import { FaDice } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -39,50 +38,54 @@ export default function LoginPage() {
   return (
     <div className="login-container">
 
-      <div className="brand">
-
-        <div className="brand-icon">
-          <FaDice />
-        </div>
-
-        <h1>Mini Lottos</h1>
-        <p className="subtitle">Play Smart. Win Big.</p>
-
-      </div>
-
       <div className="login-card">
 
-        <label>Phone Number</label>
-
-        <div className="phone-input">
-
-          <div className="country">
-            +91
+        {/* Brand */}
+        <div className="brand">
+          <div className="brand-icon">
+            <FaDice />
           </div>
 
-          <input
-            type="tel"
-            placeholder="Enter 10 digit number"
-            value={phone}
-            maxLength={10}
-            onChange={(e)=>setPhone(e.target.value)}
-          />
+          <h1>Mini Lottos</h1>
+          <p className="subtitle">Play Smart. Win Big.</p>
+        </div>
+
+        {/* Input */}
+        <div className="form-group">
+
+          <label>Phone Number</label>
+
+          <div className="phone-input">
+
+            <div className="country">
+              +91
+            </div>
+
+            <input
+              type="tel"
+              placeholder="Enter 10 digit number"
+              value={phone}
+              maxLength={10}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+
+          </div>
 
         </div>
 
-        <button onClick={handleSubmit}>
+        {/* Button */}
+        <button className="login-btn" onClick={handleSubmit}>
           Send OTP
         </button>
 
+        {/* Terms */}
+        <p className="terms">
+          By continuing you agree to our
+          <span> Terms</span> and
+          <span> Privacy Policy</span>
+        </p>
+
       </div>
-
-      <p className="terms">
-        By continuing you agree to our
-        <span> Terms</span> and
-        <span> Privacy Policy</span>
-      </p>
-
-      <BottomNav />
 
     </div>
   );

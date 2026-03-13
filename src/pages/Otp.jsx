@@ -82,7 +82,6 @@ export default function Otp() {
 
       </div>
 
-      <BottomNav />
 
     </div>
   );
