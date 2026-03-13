@@ -18,9 +18,12 @@ export default function HomePage() {
 </div>
 <div style={{padding:"10px"}}>
       <WinnerSlider />
+      <br/>
+            <br/>
+      <br/>
+
       </div>
       <BottomNav />
-
     </div>
   );
 }
