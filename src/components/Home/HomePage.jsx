@@ -22,10 +22,7 @@ export default function HomePage() {
       <br/>
 
       </div>
-<<<<<<< HEAD:src/pages/HomePage.jsx
-=======
 
->>>>>>> main:src/components/Home/HomePage.jsx
       <BottomNav />
     </div>
   );
