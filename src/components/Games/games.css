@@ -33,7 +33,7 @@
 
 .casinoTrendingGameCard:hover{
     border-color:var(--primary-color);
-    box-shadow:0 8px 20px rgba(116,30,236,0.15);
+box-shadow: 0 5px 14px rgba(0, 128, 122, 0.15);
 }
 
 .casinoTrendingGameIcon{
@@ -76,7 +76,7 @@
 
 .casinoAllGameRow:hover{
     border-color:var(--primary-color);
-    box-shadow:0 5px 14px rgba(116,30,236,0.12);
+    box-shadow: 0 5px 14px rgba(0, 128, 122, 0.15);
 }
 
 .casinoAllGameIcon{
