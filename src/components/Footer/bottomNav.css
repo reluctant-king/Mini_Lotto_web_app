@@ -45,3 +45,7 @@ transform:translateY(-3px);
 .nav-item.active svg{
 color:#741eec;
 }
+.bottom-nav-spacer{
+height:70px;
+width:100%;
+}

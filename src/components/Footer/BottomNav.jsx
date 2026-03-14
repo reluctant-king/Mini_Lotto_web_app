@@ -11,40 +11,45 @@ export default function BottomNav() {
   const path = location.pathname;
 
   return (
-    <div className="bottom-nav">
+    <>
+      {/* Spacer prevents content from hiding behind navbar */}
+      <div className="bottom-nav-spacer"></div>
 
-      <div
-        className={`nav-item ${path === "/" || path === "/homepage" ? "active" : ""}`}
-        onClick={() => navigate("/homepage")}
-      >
-        <FaHome />
-        <span>Home</span>
+      <div className="bottom-nav">
+
+        <div
+          className={`nav-item ${path === "/" || path === "/homepage" ? "active" : ""}`}
+          onClick={() => navigate("/homepage")}
+        >
+          <FaHome />
+          <span>Home</span>
+        </div>
+
+        <div
+          className={`nav-item ${path === "/games" ? "active" : ""}`}
+          onClick={() => navigate("/games")}
+        >
+          <FaDice />
+          <span>Games</span>
+        </div>
+
+        <div
+          className={`nav-item ${path === "/my-tickets" ? "active" : ""}`}
+          onClick={() => navigate("/my-tickets")}
+        >
+          <FaTicketAlt />
+          <span>My Tickets</span>
+        </div>
+
+        <div
+          className={`nav-item ${path === "/account" ? "active" : ""}`}
+          onClick={() => navigate("/account")}
+        >
+          <FaUser />
+          <span>Account</span>
+        </div>
+
       </div>
-
-      <div
-        className={`nav-item ${path === "/games" ? "active" : ""}`}
-        onClick={() => navigate("/games")}
-      >
-        <FaDice />
-        <span>Games</span>
-      </div>
-
-      <div
-        className={`nav-item ${path === "/my-tickets" ? "active" : ""}`}
-        onClick={() => navigate("/my-tickets")}
-      >
-        <FaTicketAlt />
-        <span>My Tickets</span>
-      </div>
-
-      <div
-        className={`nav-item ${path === "/account" ? "active" : ""}`}
-        onClick={() => navigate("/account")}
-      >
-        <FaUser />
-        <span>Account</span>
-      </div>
-
-    </div>
+    </>
   );
 }

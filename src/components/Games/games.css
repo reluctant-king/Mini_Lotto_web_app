@@ -1,0 +1,92 @@
+.casinoGamesPageShell{
+    padding:20px;
+    background:#f5f6fb;
+    min-height:100vh;
+    font-family:sans-serif;
+}
+
+/* trending */
+
+.casinoTrendingGamesBlock{
+    margin-bottom:35px;
+}
+
+.casinoTrendingGamesTitle{
+    font-size:20px;
+    color:#741eec;
+    margin-bottom:16px;
+}
+
+.casinoTrendingGamesGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+    gap:15px;
+}
+
+.casinoTrendingGameCard{
+    background:white;
+    border-radius:12px;
+    padding:16px;
+    text-align:center;
+    border:1px solid #e8e8ef;
+    transition:all .25s ease;
+}
+
+.casinoTrendingGameCard:hover{
+    border-color:#741eec;
+    box-shadow:0 8px 20px rgba(116,30,236,0.15);
+}
+
+.casinoTrendingGameIcon{
+    font-size:34px;
+    color:#741eec;
+    margin-bottom:8px;
+}
+
+.casinoTrendingGameCard p{
+    font-size:14px;
+    margin:0;
+    color:#333;
+}
+
+
+/* all games */
+
+.casinoAllGamesTitle{
+    font-size:20px;
+    color:#741eec;
+    margin-bottom:15px;
+}
+
+.casinoAllGamesList{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.casinoAllGameRow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #e8e8ef;
+    transition:all .2s ease;
+}
+
+.casinoAllGameRow:hover{
+    border-color:#741eec;
+    box-shadow:0 5px 14px rgba(116,30,236,0.12);
+}
+
+.casinoAllGameIcon{
+    font-size:22px;
+    color:#741eec;
+}
+
+.casinoAllGameRow span{
+    font-size:15px;
+    font-weight:500;
+    color:#333;
+}
