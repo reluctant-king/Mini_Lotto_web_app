@@ -1,63 +1,133 @@
+
+
+/* HEADER */
+
 .header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
-background:white;
+padding:18px 20px;
+
+background:linear-gradient(
+135deg,
+rgb(0 128 122),
+rgb(0 160 150)
+);
+
+color:white;
+
+border-bottom-left-radius:20px;
+border-bottom-right-radius:20px;
+
+box-shadow:0 6px 18px rgba(0,128,122,0.25);
 }
 
-/* left side */
+
+/* LEFT */
+
 .header-left{
 display:flex;
 align-items:center;
 gap:12px;
 }
 
-/* avatar */
+
+/* AVATAR */
+
 .avatar{
 width:55px;
 height:55px;
 border-radius:50%;
-border:3px solid var(--primary-color);
+border:3px solid white;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* text */
+
+/* TEXT */
+
 .welcome{
 margin:0;
-font-size:13px;
-color:#777;
+font-size:12px;
+opacity:0.85;
 }
 
 .name{
 margin:0;
-font-size:22px;
+font-size:20px;
 font-weight:700;
 }
 
-/* balance card */
-.balance-box{
-background:#fff;
-padding:10px 18px;
-border-radius:14px;
-border:1px solid var(--primary-color);
-text-align:center;
-min-width:110px;
+
+/* LOCATION */
+
+.location{
+display:inline-flex;
+align-items:center;
+gap:6px;
+
+margin-top:6px;
+
+background:rgba(255,255,255,0.15);
+
+padding:4px 10px;
+
+border-radius:20px;
+
+font-size:12px;
+font-weight:600;
+
+backdrop-filter:blur(6px);
 }
 
-.balance-title{
-font-size:11px;
-letter-spacing:2px;
-color:var(--primary-color);
-display:block;
+.location-icon{
+font-size:12px;
 }
+
+
+/* BALANCE CARD */
+
+.balance-box{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+background:white;
+color:var(--primary-color);
+
+padding:10px 16px;
+
+border-radius:14px;
+
+box-shadow:0 6px 16px rgba(0,0,0,0.15);
+
+min-width:120px;
+}
+
+
+.coin-icon{
+font-size:22px;
+color:#f59e0b;
+}
+
+
+.balance-title{
+font-size:10px;
+letter-spacing:2px;
+font-weight:600;
+display:block;
+opacity:0.7;
+}
+
 
 .balance-amount{
 font-size:20px;
-font-weight:700;
-color:var(--primary-color);
+font-weight:800;
 }
 
-/* mobile adjustments */
+
+/* MOBILE */
+
 @media (max-width:600px){
 
 .avatar{
@@ -66,38 +136,15 @@ height:45px;
 }
 
 .name{
-font-size:18px;
+font-size:17px;
 }
 
 .balance-amount{
-font-size:18px;
+font-size:17px;
 }
 
 .balance-box{
 padding:8px 14px;
 }
 
-}
-.location{
-display:inline-flex;
-align-items:center;
-gap:6px;
-
-margin-top:6px;
-
-background:var(--primary-color);
-color:white;
-
-padding:4px 10px;
-border-radius:20px;
-
-font-size:12px;
-font-weight:600;
-
-box-shadow:0 4px 10px;
-}
-
-.location-icon{
-font-size:12px;
-color:white;
 }
