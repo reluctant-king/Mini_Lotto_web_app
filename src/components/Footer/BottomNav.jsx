@@ -30,8 +30,8 @@ export default function BottomNav() {
       </div>
 
       <div
-        className={`nav-item ${path === "/tickets" ? "active" : ""}`}
-        onClick={() => navigate("/tickets")}
+        className={`nav-item ${path === "/my-tickets" ? "active" : ""}`}
+        onClick={() => navigate("/my-tickets")}
       >
         <FaTicketAlt />
         <span>My Tickets</span>
