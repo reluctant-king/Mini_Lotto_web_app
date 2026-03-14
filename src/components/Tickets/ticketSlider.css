@@ -185,7 +185,7 @@ font-size:18px;
 
 }
 .history{
-background:linear-gradient(135deg,#6a5cff,#8f7bff);
+background:linear-gradient(135deg, rgb(0 128 122 / var(--tw-bg-opacity, 1)), #00b3a8);
 color:white;
 
 display:flex;
