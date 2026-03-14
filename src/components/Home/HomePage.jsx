@@ -17,8 +17,16 @@ export default function HomePage() {
 </div>
 <div style={{padding:"10px"}}>
       <WinnerSlider />
-      </div>
+      <br/>
+            <br/>
+      <br/>
 
+      </div>
+<<<<<<< HEAD:src/components/Home/HomePage.jsx
+
+=======
+      <BottomNav />
+>>>>>>> frontendp:src/pages/HomePage.jsx
     </div>
   );
 }
