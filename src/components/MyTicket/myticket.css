@@ -1,0 +1,134 @@
+.ticketPageRoot{
+padding:20px;
+background:#f5f6fb;
+min-height:100vh;
+}
+
+.ticketPageTitle{
+font-size:22px;
+color:#741eec;
+margin-bottom:20px;
+font-weight:600;
+}
+
+/* LIST */
+
+.ticketListContainer{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* CARD */
+
+.ticketCardBox{
+display:flex;
+gap:15px;
+background:#fff;
+padding:16px;
+border-radius:14px;
+border:1px solid #e6e6f0;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+transition:all .25s ease;
+}
+
+.ticketCardBox:hover{
+border-color:#741eec;
+}
+
+/* ICON */
+
+.ticketIconBox{
+font-size:28px;
+color:#741eec;
+display:flex;
+align-items:center;
+}
+
+/* INFO */
+
+.ticketInfoBox h3{
+margin:0;
+font-size:16px;
+font-weight:600;
+}
+
+.ticketDay{
+font-size:14px;
+color:#666;
+margin-top:4px;
+}
+
+.ticketDate{
+font-size:13px;
+color:#999;
+}
+
+/* BOTTOM */
+
+.ticketBottomRow{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:8px;
+}
+
+.ticketNumber{
+font-weight:600;
+letter-spacing:1px;
+}
+
+.ticketCheck{
+color:#2ecc71;
+font-size:18px;
+font-weight:bold;
+}
+
+.ticketActive{
+background:#e8f7ee;
+color:#2ecc71;
+font-size:12px;
+font-weight:600;
+padding:3px 8px;
+border-radius:12px;
+margin-left:10px;
+}
+.ticketExpired{
+background:#ffeaea;
+color:#e74c3c;
+font-size:12px;
+font-weight:600;
+padding:4px 10px;
+border-radius:14px;
+margin-left:10px;
+}
+
+.ticketWon{
+background:#e8f7ee;
+color:#2ecc71;
+font-size:12px;
+font-weight:600;
+padding:4px 10px;
+border-radius:14px;
+margin-left:10px;
+}
+
+.ticketLost{
+background:#ffe9e9;
+color:#e74c3c;
+font-size:12px;
+font-weight:600;
+padding:4px 10px;
+border-radius:14px;
+margin-left:10px;
+}
+
+.ticketExpired{
+background:#f1f1f1;
+color:#888;
+font-size:12px;
+font-weight:600;
+padding:4px 10px;
+border-radius:14px;
+margin-left:10px;
+}

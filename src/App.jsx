@@ -8,6 +8,9 @@ import BottomNav from "./components/Footer/BottomNav";
 import RechargeTable from "./components/Recharge/RechargeTable";
 import TicketSlider from "./components/Tickets/TicketSlider";
 import WinnerSlider from "./components/Winner Slider/WinnerSlider";
+
+import MyTicket from "./components/MyTicket/MyTicket";
+
 import { Toaster } from "react-hot-toast";
 
 function Layout() {
@@ -30,6 +33,7 @@ function Layout() {
         <Route path="/tickets" element={<TicketSlider />} />
         <Route path="/winners" element={<WinnerSlider />} />
                 <Route path="/games" element={<Games />} />
+                <Route path="/my-tickets" element={<MyTicket/>} />
 
       </Routes>
 
