@@ -1,0 +1,140 @@
+/* ensure page base doesn't create scroll */
+html, body{
+margin:0;
+height:100%;
+}
+
+/* container fills entire screen */
+
+.otp-container{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+
+background:#741eec;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+padding:70px 20px 40px;
+box-sizing:border-box;
+
+overflow:auto;
+}
+
+/* brand */
+
+.otp-container .brand{
+text-align:center;
+margin-bottom:30px;
+}
+
+.otp-container .brand-icon{
+width:70px;
+height:70px;
+background:white;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#741eec;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.otp-container .brand h1{
+margin-top:14px;
+font-size:26px;
+color:white;
+}
+
+.otp-container .subtitle{
+color:#e9d5ff;
+font-size:14px;
+margin-top:6px;
+}
+
+/* card */
+
+.otp-container .otp-card{
+width:100%;
+max-width:420px;
+background:white;
+padding:40px 32px;
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+/* info */
+
+.otp-container .otp-info{
+color:#6b7280;
+margin-bottom:28px;
+}
+
+/* otp inputs */
+
+.otp-container .otp-inputs{
+display:flex;
+gap:12px;
+justify-content:center;
+margin-bottom:30px;
+}
+
+.otp-container .otp-inputs input{
+width:60px;
+height:60px;
+border-radius:14px;
+border:1px solid #e5e7eb;
+font-size:24px;
+text-align:center;
+background:#f9fafb;
+transition:0.2s;
+}
+
+.otp-container .otp-inputs input:focus{
+outline:none;
+border-color:#741eec;
+box-shadow:0 0 0 3px rgba(116,30,236,0.15);
+background:white;
+}
+
+/* button */
+
+.otp-container button{
+width:100%;
+padding:16px;
+background:linear-gradient(135deg,#741eec,#9333ea);
+border:none;
+color:white;
+font-size:17px;
+font-weight:600;
+border-radius:14px;
+cursor:pointer;
+transition:0.25s;
+box-shadow:0 10px 25px rgba(116,30,236,0.35);
+}
+
+.otp-container button:hover{
+transform:translateY(-2px);
+box-shadow:0 14px 30px rgba(116,30,236,0.45);
+}
+
+/* resend */
+
+.otp-container .resend{
+margin-top:20px;
+font-size:14px;
+color:#6b7280;
+}
+
+.otp-container .resend span{
+color:#741eec;
+font-weight:500;
+cursor:pointer;
+}
