@@ -4,6 +4,8 @@ background:#f5f6fb;
 min-height:100vh;
 }
 
+/* PAGE TITLE */
+
 .ticketPageTitle{
 font-size:22px;
 color:#741eec;
@@ -11,7 +13,7 @@ margin-bottom:20px;
 font-weight:600;
 }
 
-/* LIST */
+/* LIST CONTAINER */
 
 .ticketListContainer{
 display:flex;
@@ -19,7 +21,7 @@ flex-direction:column;
 gap:15px;
 }
 
-/* CARD */
+/* TICKET CARD */
 
 .ticketCardBox{
 display:flex;
@@ -34,6 +36,8 @@ transition:all .25s ease;
 
 .ticketCardBox:hover{
 border-color:#741eec;
+transform:translateY(-2px);
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
 
 /* ICON */
@@ -43,15 +47,24 @@ font-size:28px;
 color:#741eec;
 display:flex;
 align-items:center;
+justify-content:center;
+min-width:40px;
 }
 
 /* INFO */
+
+.ticketInfoBox{
+flex:1;
+}
 
 .ticketInfoBox h3{
 margin:0;
 font-size:16px;
 font-weight:600;
+color:#222;
 }
+
+/* DAY */
 
 .ticketDay{
 font-size:14px;
@@ -59,76 +72,28 @@ color:#666;
 margin-top:4px;
 }
 
+/* DATE */
+
 .ticketDate{
 font-size:13px;
 color:#999;
+margin-top:2px;
 }
 
-/* BOTTOM */
+/* BOTTOM ROW */
 
 .ticketBottomRow{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-top:8px;
+margin-top:10px;
 }
+
+/* TICKET NUMBER */
 
 .ticketNumber{
 font-weight:600;
 letter-spacing:1px;
-}
-
-.ticketCheck{
-color:#2ecc71;
-font-size:18px;
-font-weight:bold;
-}
-
-.ticketActive{
-background:#e8f7ee;
-color:#2ecc71;
-font-size:12px;
-font-weight:600;
-padding:3px 8px;
-border-radius:12px;
-margin-left:10px;
-}
-.ticketExpired{
-background:#ffeaea;
-color:#e74c3c;
-font-size:12px;
-font-weight:600;
-padding:4px 10px;
-border-radius:14px;
-margin-left:10px;
-}
-
-.ticketWon{
-background:#e8f7ee;
-color:#2ecc71;
-font-size:12px;
-font-weight:600;
-padding:4px 10px;
-border-radius:14px;
-margin-left:10px;
-}
-
-.ticketLost{
-background:#ffe9e9;
-color:#e74c3c;
-font-size:12px;
-font-weight:600;
-padding:4px 10px;
-border-radius:14px;
-margin-left:10px;
-}
-
-.ticketExpired{
-background:#f1f1f1;
-color:#888;
-font-size:12px;
-font-weight:600;
-padding:4px 10px;
-border-radius:14px;
-margin-left:10px;
+color:#333;
+font-size:14px;
 }

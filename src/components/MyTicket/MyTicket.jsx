@@ -7,50 +7,43 @@ const tickets = [
     name: "KARUNYA PLUS",
     day: "Sunday",
     date: "09/03/2026",
-    number: "75JKH7662M4",
-    status: "lost"
+    number: "75JKH7662M4"
   },
   {
     name: "SUVARNA KERALAM",
     day: "Monday",
     date: "10/03/2026",
-    number: "78JKP462M4",
-    status: "won"
+    number: "78JKP462M4"
   },
   {
     name: "KARUNYA",
     day: "Tuesday",
     date: "11/03/2026",
-    number: "95JKR762M4",
-    status: "lost"
+    number: "95JKR762M4"
   },
   {
     name: "SAMRUDDHI",
     day: "Wednesday",
     date: "12/03/2026",
-    number: "85JKT562M4",
-    status: "expired"
+    number: "85JKT562M4"
   },
   {
     name: "BHAGYATHARA",
     day: "Thursday",
     date: "13/03/2026",
-    number: "35ZKD962M4",
-    status: "expired"
+    number: "35ZKD962M4"
   },
   {
     name: "STHREE SAKTHI",
     day: "Friday",
     date: "14/03/2026",
-    number: "25JKQ362O4",
-    status: "lost"
+    number: "25JKQ362O4"
   },
   {
     name: "DHANALEKSHMI",
     day: "Saturday",
     date: "15/03/2026",
-    number: "7GJKX162M4",
-    status: "won"
+    number: "7GJKX162M4"
   }
 ];
 
@@ -76,19 +69,6 @@ export default function MyTickets() {
 
               <div className="ticketBottomRow">
                 <span className="ticketNumber">{ticket.number}</span>
-
-                {ticket.status === "won" && (
-                  <span className="ticketWon">Won</span>
-                )}
-
-                {ticket.status === "lost" && (
-                  <span className="ticketLost">Lost</span>
-                )}
-
-                {ticket.status === "expired" && (
-                  <span className="ticketExpired">Expired</span>
-                )}
-
               </div>
 
             </div>
