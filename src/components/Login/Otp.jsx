@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./otp.css";
 import { FaDice } from "react-icons/fa";
-import BottomNav from "../components/BottomNav";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
