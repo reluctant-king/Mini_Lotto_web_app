@@ -8,7 +8,7 @@ min-height:100vh;
 
 .ticketPageTitle{
 font-size:22px;
-color:#741eec;
+color:var(--primary-color);
 margin-bottom:20px;
 font-weight:600;
 }
@@ -35,7 +35,7 @@ transition:all .25s ease;
 }
 
 .ticketCardBox:hover{
-border-color:#741eec;
+border-color:var(--primary-color);
 transform:translateY(-2px);
 box-shadow:0 6px 16px rgba(0,0,0,0.08);
 }
@@ -44,7 +44,7 @@ box-shadow:0 6px 16px rgba(0,0,0,0.08);
 
 .ticketIconBox{
 font-size:28px;
-color:#741eec;
+color:var(--primary-color);
 display:flex;
 align-items:center;
 justify-content:center;

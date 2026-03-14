@@ -13,7 +13,7 @@ margin:20px auto;
 font-size:16px;
 font-weight:600;
 margin-bottom:12px;
-color:#741eec;
+color:var(--primary-color);
 }
 
 /* table */
@@ -27,7 +27,7 @@ font-size:14px;
 .recharge-table th{
 text-align:left;
 padding:10px;
-color:#741eec;
+color:var(--primary-color);
 border-bottom:1px solid #eee;
 font-weight:500;
 }
@@ -35,13 +35,13 @@ font-weight:500;
 .recharge-table td{
 padding:10px;
 border-bottom:1px solid #f2f2f2;
-color:#741eec
+color:var(--primary-color)
 }
 
 /* bonus highlight */
 
 .bonus{
-color:#741eec;
+color:var(--primary-color);
 font-weight:600;
 }
 

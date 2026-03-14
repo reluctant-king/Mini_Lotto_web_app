@@ -1,4 +1,8 @@
 /* Reset browser defaults */
+:root {
+  --primary-color: #741eec;
+}
+
 * {
   margin: 0;
   padding: 0;

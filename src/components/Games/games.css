@@ -13,7 +13,7 @@
 
 .casinoTrendingGamesTitle{
     font-size:20px;
-    color:#741eec;
+    color:var(--primary-color);
     margin-bottom:16px;
 }
 
@@ -33,13 +33,13 @@
 }
 
 .casinoTrendingGameCard:hover{
-    border-color:#741eec;
+    border-color:var(--primary-color);
     box-shadow:0 8px 20px rgba(116,30,236,0.15);
 }
 
 .casinoTrendingGameIcon{
     font-size:34px;
-    color:#741eec;
+    color:var(--primary-color);
     margin-bottom:8px;
 }
 
@@ -54,7 +54,7 @@
 
 .casinoAllGamesTitle{
     font-size:20px;
-    color:#741eec;
+    color:var(--primary-color);
     margin-bottom:15px;
 }
 
@@ -76,13 +76,13 @@
 }
 
 .casinoAllGameRow:hover{
-    border-color:#741eec;
+    border-color:var(--primary-color);
     box-shadow:0 5px 14px rgba(116,30,236,0.12);
 }
 
 .casinoAllGameIcon{
     font-size:22px;
-    color:#741eec;
+    color:var(--primary-color);
 }
 
 .casinoAllGameRow span{
