@@ -1,6 +1,7 @@
 /* Reset browser defaults */
 :root {
-  --primary-color: #741eec;
+  --primary-color: rgb(0 128 122 / var(--tw-bg-opacity, 1));
+
   --bacground-color: #f5f6fb;
 
 }
