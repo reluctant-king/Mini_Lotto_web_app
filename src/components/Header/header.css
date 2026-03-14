@@ -18,7 +18,7 @@ gap:12px;
 width:55px;
 height:55px;
 border-radius:50%;
-border:3px solid #e4d1ff;
+border:3px solid var(--primary-color);
 }
 
 /* text */
@@ -85,7 +85,7 @@ gap:6px;
 
 margin-top:6px;
 
-background:linear-gradient(135deg,var(--primary-color),#9f5cff);
+background:var(--primary-color);
 color:white;
 
 padding:4px 10px;
