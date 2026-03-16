@@ -8,9 +8,9 @@ export default function Account() {
     <div className="ap">
       {/* HERO */}
       <div className="hero">
-        <div className="avatar-wrap">
+        <div className="account-avatar-wrap">
           <img
-            className="avatar"
+            className="account-avatar"
             src="https://randomuser.me/api/portraits/men/75.jpg"
             alt="user"
           />
@@ -91,7 +91,7 @@ export default function Account() {
             </div>
           </div>
           <div className="agent-row">
-            <div className="agent-avatar">P</div>
+            <div className="agent-account-avatar">P</div>
             <div>
               <div className="agent-name">Pranav</div>
               <div className="agent-title">+91 98765 43210</div>

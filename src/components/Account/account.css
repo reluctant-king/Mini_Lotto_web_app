@@ -52,14 +52,14 @@
   pointer-events: none;
 }
 
-/* AVATAR */
-.avatar-wrap {
+/* account-avatar */
+.account-avatar-wrap {
   position: relative;
   margin-bottom: 14px;
   animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-.avatar {
+.account-avatar {
   width: 96px;
   height: 96px;
   border-radius: 50%;
@@ -217,7 +217,7 @@
   padding: 16px 20px;
 }
 
-.agent-avatar {
+.agent-account-avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -326,7 +326,7 @@
   .hero {
     padding: 60px 24px 100px;
   }
-  .avatar {
+  .account-avatar {
     width: 110px;
     height: 110px;
   }
