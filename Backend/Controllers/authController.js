@@ -87,11 +87,20 @@ exports.verifyOtp = async (req, res) => {
 
 exports.completeProfile = async (req, res) => {
   try {
-    const { name, location } = req.body;
+    const {
+      name,
+      email,
+      city,
+      state,
+      country,
+      gender,
+      dob
+    } = req.body;
 
-    if (!name || !location) {
+    // Validation
+    if (!name || !email || !city || !state || !country) {
       return res.status(400).json({
-        message: "Name and location are required"
+        message: "Required fields missing"
       });
     }
 
@@ -109,16 +118,24 @@ exports.completeProfile = async (req, res) => {
       });
     }
 
+    // Generate unique memberId
     let memberId;
     let exists = true;
 
     while (exists) {
       memberId = "ML" + Math.floor(100000 + Math.random() * 900000);
-      exists = await User.findOne({ memberId });
+      const existingUser = await User.findOne({ memberId });
+      exists = !!existingUser;
     }
 
+    // Update user
     user.name = name;
-    user.location = location;
+    user.email = email;
+    user.city = city;
+    user.state = state;
+    user.country = country;
+    user.gender = gender;
+    user.dob = dob;
     user.memberId = memberId;
     user.isProfileComplete = true;
 
@@ -130,8 +147,9 @@ exports.completeProfile = async (req, res) => {
     });
 
   } catch (error) {
+    console.error(error);
     res.status(500).json({
-      message: error.message
+      message: "Server error"
     });
   }
 };

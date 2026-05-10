@@ -70,9 +70,9 @@ export default function Otp() {
         navigate("/homepage");
       }
 
-      setTimeout(() => {
-        navigate("/homepage");
-      }, 1000);
+      // setTimeout(() => {
+      //   navigate("/homepage");
+      // }, 1000);
     } catch (err) {
       toast.error(err.response?.data?.message || "Invalid OTP");
     } finally {
