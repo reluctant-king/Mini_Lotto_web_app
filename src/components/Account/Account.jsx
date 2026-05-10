@@ -17,6 +17,7 @@ export default function Account() {
           <div className="status-dot"></div>
         </div>
         <div className="hero-name">Arjun 👋</div>
+        
         <div className="hero-role">Member since 2024</div>
       </div>
 

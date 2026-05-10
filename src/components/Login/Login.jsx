@@ -3,14 +3,14 @@ import "./login.css";
 import { FaDice } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function LoginPage() {
-
   const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async () => {
     const cleanPhone = phone.replace(/\D/g, "");
 
     if (!cleanPhone) {
@@ -28,16 +28,30 @@ export default function LoginPage() {
       return;
     }
 
-    toast.success("OTP sent to +91 " + cleanPhone + " 📩");
+    try {
+      setLoading(true);
 
-    setTimeout(() => {
-      navigate("/otp");
-    }, 1200);
+      const res = await axios.post(
+        "http://localhost:8080/api/v1/auth/send-otp",
+        { phone: cleanPhone }
+      );
+
+      toast.success(res.data.message || "OTP sent 📩");
+
+      // pass phone to OTP page
+      navigate("/otp", { state: { phone: cleanPhone } });
+
+    } catch (err) {
+      toast.error(
+        err.response?.data?.message || "Failed to send OTP"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="login-container">
-
       <div className="login-card">
 
         {/* Brand */}
@@ -52,30 +66,30 @@ export default function LoginPage() {
 
         {/* Input */}
         <div className="form-group">
-
           <label>Phone Number</label>
 
           <div className="phone-input">
-
-            <div className="country">
-              +91
-            </div>
+            <div className="country">+91</div>
 
             <input
               type="tel"
               placeholder="Enter 10 digit number"
               value={phone}
               maxLength={10}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) =>
+                setPhone(e.target.value.replace(/\D/g, ""))
+              }
             />
-
           </div>
-
         </div>
 
         {/* Button */}
-        <button className="login-btn" onClick={handleSubmit}>
-          Send OTP
+        <button 
+          className="login-btn" 
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? "Sending..." : "Send OTP"}
         </button>
 
         {/* Terms */}
@@ -86,7 +100,6 @@ export default function LoginPage() {
         </p>
 
       </div>
-
     </div>
   );
 }

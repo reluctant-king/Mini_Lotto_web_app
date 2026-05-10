@@ -11,6 +11,8 @@ import WinnerSlider from "./components/Winner Slider/WinnerSlider";
 import Account from "./components/Account/Account";
 import MyTicket from "./components/MyTicket/MyTicket";
 import { Toaster } from "react-hot-toast";
+import CompleteProfile from "./components/Account/Complete_Profile";
+
 
 function Layout() {
   const location = useLocation();
@@ -24,9 +26,9 @@ function Layout() {
       <Toaster position="top-center" />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element= {<Login />}/>
         <Route path="/homepage" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />}/>
         <Route path="/otp" element={<Otp />} />
         <Route path="/recharge" element={<RechargeTable />} />
         <Route path="/tickets" element={<TicketSlider />} />
@@ -34,6 +36,7 @@ function Layout() {
         <Route path="/games" element={<Games />} />
         <Route path="/my-tickets" element={<MyTicket />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/complete-profile" element={<CompleteProfile />} />
       </Routes>
 
       {!hideLayout && <BottomNav />}
