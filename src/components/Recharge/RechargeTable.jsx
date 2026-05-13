@@ -1,40 +1,36 @@
-import React from "react";
-import "./rechargeTable.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function RechargeTable() {
+  const [plans, setPlans] = useState([]);
 
-const data = [
-  { recharge: "₹100", bonus: "₹10" },
-  { recharge: "₹500", bonus: "₹15" },
-  { recharge: "₹1,000", bonus: "₹25" },
-  { recharge: "₹3,000", bonus: "₹50" }
-];
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/recharge")
+      .then(res => setPlans(res.data))
+      .catch(err => console.error(err));
+  }, []);
 
-return (
-  <div className="recharge-card">
+  return (
+    <div className="recharge-card">
+      <h3 className="table-title">Recharge Bonus</h3>
 
-    <h3 className="table-title">Recharge Bonus</h3>
-
-    <table className="recharge-table">
-
-      <thead>
-        <tr>
-          <th>Recharge</th>
-          <th>Bonus</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.recharge}</td>
-            <td className="bonus">{item.bonus}</td>
+      <table className="recharge-table">
+        <thead>
+          <tr>
+            <th>Recharge</th>
+            <th>Bonus</th>
           </tr>
-        ))}
-      </tbody>
+        </thead>
 
-    </table>
-
-  </div>
-);
+        <tbody>
+          {plans.map((p, i) => (
+            <tr key={i}>
+              <td>₹{p.amount}</td>
+              <td className="bonus">₹{p.bonus}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }

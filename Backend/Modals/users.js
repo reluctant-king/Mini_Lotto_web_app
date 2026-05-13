@@ -34,6 +34,9 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  
+  balance: { type: Number, default: 0 },
+  tickets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Ticket" }],
 
   otp: String,
   otpExpiry: Date,

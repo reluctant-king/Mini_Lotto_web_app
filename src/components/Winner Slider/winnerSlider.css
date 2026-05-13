@@ -70,3 +70,38 @@ cursor:pointer;
 
 .arrow-left{ left:-10px; }
 .arrow-right{ right:-10px; }
+
+.slider {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+.winner-card {
+  min-width: 140px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.skeleton {
+  height: 120px;
+  background: linear-gradient(
+    90deg,
+    #eee 25%,
+    #ddd 37%,
+    #eee 63%
+  );
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}

@@ -21,7 +21,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const authRoutes = require("./Routes/authRoutes");
+import rechargeRoutes from "./Routes/rechargeRoutes.js";
+import ticketRoutes from "./Routes/ticketRoutes.js";
+import winnerRoutes from "./Routes/winnerRoutes.js";
 
+app.use("/api/recharge", rechargeRoutes);
+app.use("/api/tickets", ticketRoutes);
+app.use("/api/winners", winnerRoutes);
 
 app.use("/api/v1/auth", authRoutes);
 

@@ -1,137 +1,84 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./winnerSlider.css";
+import axios from "axios";
 
 export default function WinnerSlider() {
+  const sliderRef = useRef(null);
 
-const sliderRef = useRef(null);
+  const [winners, setWinners] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const scrollLeft = () => {
-  sliderRef.current.scrollBy({ left: -260, behavior: "smooth" });
-};
+  // 🎯 FETCH WINNERS FROM BACKEND
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/winners")
+      .then((res) => setWinners(res.data))
+      .catch((err) => console.error("Winner fetch error:", err))
+      .finally(() => setLoading(false));
+  }, []);
 
-const scrollRight = () => {
-  sliderRef.current.scrollBy({ left: 260, behavior: "smooth" });
-};
-const winners = [
-{
-name:"Akhil",
-place:"Neyyattinkara",
-amount:"₹50,000",
-img:"https://randomuser.me/api/portraits/men/32.jpg"
-},
-{
-name:"Anju",
-place:"Karunagappally",
-amount:"₹20,000",
-img:"https://randomuser.me/api/portraits/women/45.jpg"
-},
-{
-name:"Sreejith",
-place:"Adoor",
-amount:"₹1,00,000",
-img:"https://randomuser.me/api/portraits/men/75.jpg"
-},
-{
-name:"Reshma",
-place:"Cherthala",
-amount:"₹5,000",
-img:"https://randomuser.me/api/portraits/women/66.jpg"
-},
-{
-name:"Anitha",
-place:"Pala",
-amount:"₹35,000",
-img:"https://randomuser.me/api/portraits/women/60.jpg"
-},
-{
-name:"Ramesh",
-place:"Thodupuzha",
-amount:"₹75,000",
-img:"https://randomuser.me/api/portraits/men/44.jpg"
-},
-{
-name:"Ajith",
-place:"Aluva",
-amount:"₹15,000",
-img:"https://randomuser.me/api/portraits/men/55.jpg"
-},
-{
-name:"Divya",
-place:"Irinjalakuda",
-amount:"₹28,000",
-img:"https://randomuser.me/api/portraits/women/22.jpg"
-},
-{
-name:"Kiran",
-place:"Ottapalam",
-amount:"₹12,000",
-img:"https://randomuser.me/api/portraits/men/81.jpg"
-},
-{
-name:"Athira",
-place:"Manjeri",
-amount:"₹42,000",
-img:"https://randomuser.me/api/portraits/women/39.jpg"
-},
-{
-name:"Arun",
-place:"Koyilandy",
-amount:"₹18,000",
-img:"https://randomuser.me/api/portraits/men/28.jpg"
-},
-{
-name:"Sneha",
-place:"Kalpetta",
-amount:"₹60,000",
-img:"https://randomuser.me/api/portraits/women/47.jpg"
-},
-{
-name:"Vishnu",
-place:"Taliparamba",
-amount:"₹90,000",
-img:"https://randomuser.me/api/portraits/men/19.jpg"
-},
-{
-name:"Neethu",
-place:"Kanhangad",
-amount:"₹22,000",
-img:"https://randomuser.me/api/portraits/women/52.jpg"
-},
-{
-name:"Rahul",
-place:"Perumbavoor",
-amount:"₹55,000",
-img:"https://randomuser.me/api/portraits/men/63.jpg"
-},
-{
-name:"Pooja",
-place:"Chalakudy",
-amount:"₹17,000",
-img:"https://randomuser.me/api/portraits/women/33.jpg"
-}
-];
+  // 🎯 SCROLL
+  const scroll = (dir) => {
+    sliderRef.current.scrollBy({
+      left: dir * 260,
+      behavior: "smooth"
+    });
+  };
 
-return (
+  // 🎯 LOADING STATE (SKELETON)
+  if (loading) {
+    return (
+      <div className="slider-wrapper">
+        <div className="slider">
+          {[1, 2, 3, 4].map((_, i) => (
+            <div className="winner-card skeleton" key={i} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
-<div className="slider-wrapper">
-<button className="arrow arrow-left" onClick={scrollLeft}>‹</button>
-<button className="arrow arrow-right" onClick={scrollRight}>›</button>
+  return (
+    <div className="slider-wrapper">
 
-<div className="slider" ref={sliderRef}>
+      <button className="arrow arrow-left" onClick={() => scroll(-1)}>
+        ‹
+      </button>
 
-{winners.map((winner,index)=>(
-<div className="winner-card" key={index}>
+      <button className="arrow arrow-right" onClick={() => scroll(1)}>
+        ›
+      </button>
 
-<img src={winner.img} />
+      <div className="slider" ref={sliderRef}>
 
-<div className="winner-name">{winner.name}</div>
-<div className="winner-place">{winner.place}</div>
-<div className="winner-amount">{winner.amount}</div>
+        {winners.length === 0 ? (
+          <div className="no-data">No winners yet</div>
+        ) : (
+          winners.map((winner, index) => (
+            <div className="winner-card" key={winner._id || index}>
 
-</div>
-))}
+              <img
+                src={winner.img || "https://via.placeholder.com/80"}
+                alt={winner.name}
+              />
 
-</div>
-</div>
-);
+              <div className="winner-name">
+                {winner.name || "Unknown"}
+              </div>
+
+              <div className="winner-place">
+                {winner.place || "-"}
+              </div>
+
+              <div className="winner-amount">
+                {winner.amount || "₹0"}
+              </div>
+
+            </div>
+          ))
+        )}
+
+      </div>
+    </div>
+  );
 }

@@ -1,133 +1,112 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./ticketSlider.css";
 import { FaHistory } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function TicketSlider(){
+export default function TicketSlider() {
+  const sliderRef = useRef(null);
+  const navigate = useNavigate();
 
-const sliderRef = useRef(null)
-const navigate = useNavigate()
+  const [tickets, setTickets] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-const slide = (direction)=>{
-sliderRef.current.scrollBy({
-left: direction * 200,
-behavior: "smooth"
-})
-}
+  // 🎯 FETCH FROM BACKEND
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/tickets")
+      .then((res) => setTickets(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
-const updateCenterTicket = ()=>{
+  // 🎯 SLIDE
+  const slide = (dir) => {
+    const slider = sliderRef.current;
+    const scrollAmount = 220;
 
-const slider = sliderRef.current
-const sliderRect = slider.getBoundingClientRect()
-const sliderCenter = sliderRect.left + sliderRect.width / 2
+    slider.scrollBy({
+      left: dir * scrollAmount,
+      behavior: "smooth"
+    });
+  };
 
-let closest = null
-let closestDistance = Infinity
+  // 🎯 ACTIVE CENTER LOGIC (NO DOM MANIPULATION)
+  const handleScroll = () => {
+    const slider = sliderRef.current;
+    const children = Array.from(slider.children);
 
-slider.querySelectorAll(".ticket").forEach(ticket=>{
+    const sliderCenter =
+      slider.scrollLeft + slider.offsetWidth / 2;
 
-const rect = ticket.getBoundingClientRect()
-const ticketCenter = rect.left + rect.width / 2
-const distance = Math.abs(sliderCenter - ticketCenter)
+    let closestIndex = 0;
+    let closestDistance = Infinity;
 
-if(distance < closestDistance){
-closestDistance = distance
-closest = ticket
-}
+    children.forEach((child, index) => {
+      const childCenter =
+        child.offsetLeft + child.offsetWidth / 2;
 
-})
+      const distance = Math.abs(sliderCenter - childCenter);
 
-slider.querySelectorAll(".ticket").forEach(t => t.classList.remove("active"))
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
 
-if(closest) closest.classList.add("active")
+    setActiveIndex(closestIndex);
+  };
 
-}
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
 
-useEffect(()=>{
+    slider.addEventListener("scroll", handleScroll);
+    handleScroll();
 
-const slider = sliderRef.current
+    return () => slider.removeEventListener("scroll", handleScroll);
+  }, [tickets]);
 
-slider.addEventListener("scroll", updateCenterTicket)
-updateCenterTicket()
+  return (
+    <div className="ticket-container">
 
-return ()=>{
-slider.removeEventListener("scroll", updateCenterTicket)
-}
+      <button className="arrow left" onClick={() => slide(-1)}>
+        ❮
+      </button>
 
-},[])
+      <div className="ticket-slider" ref={sliderRef}>
 
-return(
+        {tickets.map((ticket, index) => (
+          <div
+            key={ticket._id || index}
+            className={`ticket ${ticket.day?.toLowerCase()} ${
+              index === activeIndex ? "active" : ""
+            }`}
+          >
+            <div className="ticket-title">{ticket.title}</div>
+            <div className="ticket-day">{ticket.day}</div>
+            <div className="ticket-date">
+              {new Date(ticket.date).toLocaleDateString()}
+            </div>
+            <div className="ticket-id">{ticket.ticketId}</div>
+          </div>
+        ))}
 
-<div className="ticket-container">
+        {/* HISTORY CARD */}
+        <div
+          className={`ticket history ${
+            activeIndex === tickets.length ? "active" : ""
+          }`}
+          onClick={() => navigate("/my-tickets")}
+        >
+          <FaHistory className="history-icon" />
+          <div className="ticket-title">View History</div>
+        </div>
 
-<button className="arrow left" onClick={()=>slide(-1)}>❮</button>
+      </div>
 
-<div className="ticket-slider" ref={sliderRef}>
-
-<div className="ticket sunday">
-<div className="ticket-title">KARUNYA PLUS</div>
-<div className="ticket-day">Sunday</div>
-<div className="ticket-date">20/03/2026</div>
-<div className="ticket-id">75***662M4</div>
-</div>
-
-<div className="ticket monday">
-<div className="ticket-title">SUVARNA KERALAM</div>
-<div className="ticket-day">Monday</div>
-<div className="ticket-date">21/03/2026</div>
-<div className="ticket-id">78J***62M4</div>
-</div>
-
-<div className="ticket tuesday">
-<div className="ticket-title">KARUNYA</div>
-<div className="ticket-day">Tuesday</div>
-<div className="ticket-date">22/03/2026</div>
-<div className="ticket-id">95J***2M4</div>
-</div>
-
-<div className="ticket wednesday">
-<div className="ticket-title">SAMRUDDHI</div>
-<div className="ticket-day">Wednesday</div>
-<div className="ticket-date">23/03/2026</div>
-<div className="ticket-id">85J***2M4</div>
-</div>
-
-<div className="ticket thursday">
-<div className="ticket-title">BHAGYATHARA</div>
-<div className="ticket-day">Thursday</div>
-<div className="ticket-date">24/03/2026</div>
-<div className="ticket-id">35Z***2M4</div>
-</div>
-
-<div className="ticket friday">
-<div className="ticket-title">STHREE SAKTHI</div>
-<div className="ticket-day">Friday</div>
-<div className="ticket-date">25/03/2026</div>
-<div className="ticket-id">25***62O4</div>
-</div>
-
-<div className="ticket saturday">
-<div className="ticket-title">DHANALEKSHMI</div>
-<div className="ticket-day">Saturday</div>
-<div className="ticket-date">26/03/2026</div>
-<div className="ticket-id">7GJ***2M4</div>
-</div>
-
-<div 
-className="ticket history"
-onClick={()=>navigate("/my-tickets")}
-style={{cursor:"pointer"}}
->
-<FaHistory className="history-icon" />
-<div className="ticket-title">View History</div>
-</div>
-
-</div>
-
-<button className="arrow right" onClick={()=>slide(1)}>❯</button>
-
-</div>
-
-)
-
+      <button className="arrow right" onClick={() => slide(1)}>
+        ❯
+      </button>
+    </div>
+  );
 }
