@@ -1,5 +1,5 @@
 import express from "express";
-import { getWinners } from "../Controllers/winnerController.js";
+import { getWinners } from "../controllers/winnerController.js";
 
 const router = express.Router();
 

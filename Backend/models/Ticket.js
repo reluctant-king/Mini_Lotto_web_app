@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ticketSchema = new mongoose.Schema({
   number: String,
@@ -6,13 +6,13 @@ const ticketSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["available", "sold"],
-    default: "available"
+    default: "available",
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    default: null
-  }
+    default: null,
+  },
 }, { timestamps: true });
 
 export default mongoose.model("Ticket", ticketSchema);

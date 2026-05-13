@@ -1,11 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-// const cookieParser = require("cookie-parser");
-const dotenv = require("dotenv");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
 
-
-dotenv.config({ path: "./Config/config.env" })
+dotenv.config({ path: "./config/config.env" });
 
 
 const app = express();
@@ -20,10 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cookieParser());
 
 
-const authRoutes = require("./Routes/authRoutes");
-import rechargeRoutes from "./Routes/rechargeRoutes.js";
-import ticketRoutes from "./Routes/ticketRoutes.js";
-import winnerRoutes from "./Routes/winnerRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import rechargeRoutes from "./routes/rechargeRoutes.js";
+import ticketRoutes from "./routes/ticketRoutes.js";
+import winnerRoutes from "./routes/winnerRoutes.js";
 
 app.use("/api/recharge", rechargeRoutes);
 app.use("/api/tickets", ticketRoutes);

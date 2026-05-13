@@ -1,5 +1,5 @@
 import express from "express";
-import { getRechargePlans } from "../Controllers/rechargeController.js";
+import { getRechargePlans } from "../controllers/rechargeController.js";
 
 const router = express.Router();
 

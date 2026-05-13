@@ -1,8 +1,14 @@
-const express = require("express");
-const router = express.Router();
+import express from "express";
+import {
+  sendOtp,
+  verifyOtp,
+  completeProfile,
+  getProfile,
+  updateProfile,
+} from "../controllers/authController.js";
+import { isAuthenticated } from "../middleware/authMiddleware.js";
 
-const { sendOtp, verifyOtp, completeProfile, getProfile, updateProfile } = require("../Controllers/authController");
-const { isAuthenticated } = require("../Middlleware/authMiddleware"); 
+const router = express.Router();
 
 router.post("/send-otp", sendOtp);
 router.post("/verify-otp", verifyOtp);
@@ -12,4 +18,4 @@ router.put("/profile", isAuthenticated, updateProfile);
 
 router.post("/complete-profile", isAuthenticated, completeProfile);
 
-module.exports = router;
+export default router;

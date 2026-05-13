@@ -1,4 +1,4 @@
-import User from "../Models/User.js";
+import User from "../models/User.js";
 
 export const getBalance = async (req, res) => {
   const user = await User.findById(req.user.id);

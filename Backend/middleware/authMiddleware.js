@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
-exports.isAuthenticated = (req, res, next) => {
+export const isAuthenticated = (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
 
@@ -12,7 +12,6 @@ exports.isAuthenticated = (req, res, next) => {
 
     req.user = decoded;
     next();
-
   } catch (error) {
     return res.status(401).json({ message: "Invalid token" });
   }

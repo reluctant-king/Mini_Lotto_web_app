@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -6,4 +6,4 @@ const transactionSchema = new mongoose.Schema({
   type: { type: String, enum: ["recharge", "purchase"] },
 }, { timestamps: true });
 
-module.exports = mongoose.model("Transaction", transactionSchema);
+export default mongoose.model("Transaction", transactionSchema);

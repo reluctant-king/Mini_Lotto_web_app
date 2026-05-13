@@ -1,8 +1,8 @@
-const User = require("../Modals/users");
-const sendOtp = require("../utils/sendOtp");
+import User from "../models/User.js";
+import sendOtpHelper from "../utils/sendOtp.js";
+import jwt from "jsonwebtoken";
 
-
-exports.sendOtp = async (req, res) => {
+export const sendOtp = async (req, res) => {
   try {
     const { phone } = req.body;
 
@@ -21,7 +21,7 @@ exports.sendOtp = async (req, res) => {
       { upsert: true, new: true }
     );
 
-    sendOtp(phone, otp);
+    sendOtpHelper(phone, otp);
 
     res.status(200).json({ message: "OTP sent" });
 
@@ -30,10 +30,7 @@ exports.sendOtp = async (req, res) => {
   }
 };
 
-
-const jwt = require("jsonwebtoken");
-
-exports.verifyOtp = async (req, res) => {
+export const verifyOtp = async (req, res) => {
   try {
     const { phone, otp } = req.body;
 
@@ -85,7 +82,7 @@ exports.verifyOtp = async (req, res) => {
   }
 };
 
-exports.completeProfile = async (req, res) => {
+export const completeProfile = async (req, res) => {
   try {
     const {
       name,
@@ -154,7 +151,7 @@ exports.completeProfile = async (req, res) => {
   }
 };
 
-exports.getProfile = async (req, res) => {
+export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-otp -otpExpiry");
 
@@ -175,8 +172,7 @@ exports.getProfile = async (req, res) => {
   }
 };
 
-// UPDATE PROFILE
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   try {
     const {
       name,

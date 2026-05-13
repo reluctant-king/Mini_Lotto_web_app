@@ -1,5 +1,5 @@
-import Ticket from "../Models/Ticket.js";
-import User from "../Models/User.js";
+import Ticket from "../models/Ticket.js";
+import User from "../models/User.js";
 
 export const getAvailableTickets = async (req, res) => {
   const tickets = await Ticket.find({ status: "available" });

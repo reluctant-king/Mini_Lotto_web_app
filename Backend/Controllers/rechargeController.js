@@ -1,4 +1,4 @@
-import Recharge from "../Modals/rechargeModel.js";
+import Recharge from "../models/rechargeModel.js";
 
 export const getRechargePlans = async (req, res) => {
   try {
