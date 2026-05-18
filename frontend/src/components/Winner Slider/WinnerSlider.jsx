@@ -11,7 +11,7 @@ export default function WinnerSlider() {
   // 🎯 FETCH WINNERS FROM BACKEND
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/winners")
+      .get("http://localhost:8080/api/winners/getwinners")
       .then((res) => setWinners(res.data))
       .catch((err) => console.error("Winner fetch error:", err))
       .finally(() => setLoading(false));

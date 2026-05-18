@@ -34,11 +34,11 @@ export default function BottomNav() {
         </div>
 
         <div
-          className={`nav-item ${path === "/my-tickets" ? "active" : ""}`}
-          onClick={() => navigate("/my-tickets")}
+          className={`nav-item ${path === "/tickets" ? "active" : ""}`}
+          onClick={() => navigate("/tickets")}
         >
           <FaTicketAlt />
-          <span>My Tickets</span>
+          <span>Tickets</span>
         </div>
 
         <div

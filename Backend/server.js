@@ -22,10 +22,12 @@ import authRoutes from "./routes/authRoutes.js";
 import rechargeRoutes from "./routes/rechargeRoutes.js";
 import ticketRoutes from "./routes/ticketRoutes.js";
 import winnerRoutes from "./routes/winnerRoutes.js";
+import walletRoutes from "./routes/walletRoutes.js";
 
 app.use("/api/recharge", rechargeRoutes);
 app.use("/api/tickets", ticketRoutes);
 app.use("/api/winners", winnerRoutes);
+app.use("/api/wallet", walletRoutes);
 
 app.use("/api/v1/auth", authRoutes);
 

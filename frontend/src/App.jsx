@@ -6,7 +6,6 @@ import Games from "./components/Games/Games";
 import Header from "./components/Header/Header";
 import BottomNav from "./components/Footer/BottomNav";
 import RechargeTable from "./components/Recharge/RechargeTable";
-import TicketSlider from "./components/Tickets/TicketSlider";
 import WinnerSlider from "./components/Winner Slider/WinnerSlider";
 import Account from "./components/Account/Account";
 import MyTicket from "./components/MyTicket/MyTicket";
@@ -31,10 +30,9 @@ function Layout() {
         <Route path="/login" element={<Login />}/>
         <Route path="/otp" element={<Otp />} />
         <Route path="/recharge" element={<RechargeTable />} />
-        <Route path="/tickets" element={<TicketSlider />} />
+        <Route path="/tickets" element={<MyTicket />} />
         <Route path="/winners" element={<WinnerSlider />} />
         <Route path="/games" element={<Games />} />
-        <Route path="/my-tickets" element={<MyTicket />} />
         <Route path="/account" element={<Account />} />
         <Route path="/complete-profile" element={<CompleteProfile />} />
       </Routes>

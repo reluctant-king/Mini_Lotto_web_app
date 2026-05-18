@@ -1,82 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./myticket.css";
 import { FaTicketAlt } from "react-icons/fa";
-
-const tickets = [
-  {
-    name: "KARUNYA PLUS",
-    day: "Sunday",
-    date: "09/03/2026",
-    number: "75JKH7662M4"
-  },
-  {
-    name: "SUVARNA KERALAM",
-    day: "Monday",
-    date: "10/03/2026",
-    number: "78JKP462M4"
-  },
-  {
-    name: "KARUNYA",
-    day: "Tuesday",
-    date: "11/03/2026",
-    number: "95JKR762M4"
-  },
-  {
-    name: "SAMRUDDHI",
-    day: "Wednesday",
-    date: "12/03/2026",
-    number: "85JKT562M4"
-  },
-  {
-    name: "BHAGYATHARA",
-    day: "Thursday",
-    date: "13/03/2026",
-    number: "35ZKD962M4"
-  },
-  {
-    name: "STHREE SAKTHI",
-    day: "Friday",
-    date: "14/03/2026",
-    number: "25JKQ362O4"
-  },
-  {
-    name: "DHANALEKSHMI",
-    day: "Saturday",
-    date: "15/03/2026",
-    number: "7GJKX162M4"
-  }
-];
+import axios from "axios";
 
 export default function MyTickets() {
+  const [tickets, setTickets] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 🔥 Fetch tickets from backend
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/tickets/getavailtickets")
+      .then((res) => {
+        setTickets(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="ticketPageRoot">
+      <h2 className="ticketPageTitle">Available Tickets</h2>
 
-      <h2 className="ticketPageTitle">My Tickets</h2>
+      {loading ? (
+        <p>Loading tickets...</p>
+      ) : tickets.length === 0 ? (
+        <p>No tickets available</p>
+      ) : (
+        <div className="ticketListContainer">
+          {tickets.map((ticket, index) => (
+            <div key={ticket._id || index} className="ticketCardBox">
 
-      <div className="ticketListContainer">
-        {tickets.map((ticket, index) => (
-          <div key={index} className="ticketCardBox">
-
-            <div className="ticketIconBox">
-              <FaTicketAlt />
-            </div>
-
-            <div className="ticketInfoBox">
-              <h3>{ticket.name}</h3>
-
-              <p className="ticketDay">{ticket.day}</p>
-              <p className="ticketDate">{ticket.date}</p>
-
-              <div className="ticketBottomRow">
-                <span className="ticketNumber">{ticket.number}</span>
+              <div className="ticketIconBox">
+                <FaTicketAlt />
               </div>
 
+              <div className="ticketInfoBox">
+                <h3>{ticket.name || `Ticket #${ticket.number}`}</h3>
+
+                <p className="ticketDay">{ticket.day || "Available"}</p>
+                <p className="ticketDate">
+                  {ticket.date || new Date(ticket.createdAt).toLocaleDateString()}
+                </p>
+
+                <div className="ticketBottomRow">
+                  <span className="ticketNumber">#{ticket.number}</span>
+
+                  <span className="ticketPrice">
+                    {ticket.price ? `₹${ticket.price}` : "Price not set"}
+                  </span>
+                </div>
+              </div>
             </div>
-
-          </div>
-        ))}
-      </div>
-
+          ))}
+        </div>
+      )}
     </div>
   );
 }

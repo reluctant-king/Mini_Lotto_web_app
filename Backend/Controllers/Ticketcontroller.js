@@ -2,7 +2,12 @@ import Ticket from "../models/Ticket.js";
 import User from "../models/User.js";
 
 export const getAvailableTickets = async (req, res) => {
-  const tickets = await Ticket.find({ status: "available" });
+  const tickets = await Ticket.find({
+    $or: [
+      { status: "available" },
+      { status: { $exists: false } }
+    ]
+  });
   res.json(tickets);
 };
 

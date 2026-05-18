@@ -4,7 +4,7 @@ import { isAuthenticated } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/getavailable", getAvailableTickets);
+router.get("/getavailtickets", getAvailableTickets);
 router.post("/buy", isAuthenticated, buyTicket);
 
 export default router;
